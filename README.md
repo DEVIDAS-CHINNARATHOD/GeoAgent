@@ -338,11 +338,11 @@ startup OOM while loading embedding models.
 
 | ID | Name | Role |
 |----|------|------|
-| 1HK23CS038 | Deepika M R | Frontend Developer — `feature/frontend` |
+| 1HK23CS038 | Deepika M R | Documentation — `feature/docs` |
 | 1HK23CS039 | Deepthi Raj D | Dataset Engineer — `feature/dataset` |
-| 1HK23CS040 | Deepti Kanta Panigrahi | Testing Engineer — `feature/testing` |
+| 1HK23CS040 | Deepti Kanta Panigrahi | Testing — `feature/testing` |
 | 1HK23CS041 | Devidas | Backend and AI Lead — `main` / `dev` |
-| 1HK23CS042 | Dhanushree P | Documentation Engineer — `feature/docs` |
+| 1HK23CS042 | Dhanushree P |  Frontend Developer — `feature/frontend`  |
 
 ---
 
