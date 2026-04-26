@@ -1,5 +1,6 @@
 import React from 'react'
 import { MessageSquare, Calendar, MapPin, User, Globe } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import clsx from 'clsx'
 import type { ActiveTab } from '../types'
 
@@ -10,7 +11,7 @@ interface Props {
   profileOpen: boolean
 }
 
-const NAV_ITEMS: { id: ActiveTab; icon: React.FC<{ className?: string }>; label: string }[] = [
+const NAV_ITEMS: { id: ActiveTab; icon: LucideIcon; label: string }[] = [
   { id: 'chat', icon: MessageSquare, label: 'Chat' },
   { id: 'plan', icon: Calendar, label: 'Plan' },
   { id: 'nearby', icon: MapPin, label: 'Nearby' },
