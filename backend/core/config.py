@@ -25,6 +25,9 @@ class Settings(BaseSettings):
 
     CHUNK_SIZE: int = 1000
     CHUNK_OVERLAP: int = 200
+    RAG_PREWARM_ON_STARTUP: bool = (
+        os.getenv("RAG_PREWARM_ON_STARTUP", "false").lower() == "true"
+    )
 
     @property
     def cors_origins_list(self) -> list[str]:

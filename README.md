@@ -148,8 +148,9 @@ uvicorn main:app --reload --port 8000
 The backend will be available at http://localhost:8000.
 API docs: http://localhost:8000/docs
 
-On first startup, the RAG pipeline will build the Chroma vector store from
-`data/tourism_data.txt`. Subsequent starts load the persisted index.
+RAG loads lazily by default to keep memory usage low on small instances.
+Set `RAG_PREWARM_ON_STARTUP=true` only if your host has enough memory and you
+want faster first-query latency.
 
 ### Frontend
 
@@ -285,6 +286,9 @@ Returns `{ "status": "ok", "version": "1.0.0" }`.
 3. Set build command: `pip install -r requirements.txt`
 4. Set start command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
 5. Add environment variables: `GROQ_API_KEY`, `MAPS_API_KEY`, `WEATHER_API_KEY`
+
+For low-memory plans, keep `RAG_PREWARM_ON_STARTUP=false` (or unset) to avoid
+startup OOM while loading embedding models.
 
 ### Frontend → Vercel
 

@@ -11,13 +11,17 @@ from routes import chat, plan, nearby, export
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    logger.info("GeoAgent backend starting – initialising RAG pipeline...")
-    try:
-        from services.rag_service import get_vector_db
-        get_vector_db()
-        logger.info("RAG pipeline ready.")
-    except Exception as exc:
-        logger.warning("RAG pipeline init deferred: %s", exc)
+    if settings.RAG_PREWARM_ON_STARTUP:
+        logger.info("GeoAgent backend starting – initialising RAG pipeline...")
+        try:
+            from services.rag_service import get_vector_db
+
+            get_vector_db()
+            logger.info("RAG pipeline ready.")
+        except Exception as exc:
+            logger.warning("RAG pipeline init deferred: %s", exc)
+    else:
+        logger.info("GeoAgent backend starting – RAG prewarm disabled.")
     yield
     logger.info("GeoAgent backend shutting down.")
 
